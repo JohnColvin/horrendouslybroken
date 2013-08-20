@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130730192329) do
+ActiveRecord::Schema.define(version: 20130820180255) do
 
   create_table "buckets", force: true do |t|
     t.string   "name"
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 20130730192329) do
   add_index "posts", ["bucket_id"], name: "index_posts_on_bucket_id"
 
   create_table "users", force: true do |t|
-    t.string   "name",                   default: "Anonymous Coward", null: false
-    t.string   "email",                  default: "",                 null: false
-    t.string   "encrypted_password",     default: "",                 null: false
+    t.string   "name",                                null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

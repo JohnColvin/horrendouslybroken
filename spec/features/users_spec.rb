@@ -6,7 +6,7 @@ feature 'signing up' do
     fill_in :user_name, with: valid_attributes[:name]
     fill_in :user_email, with: valid_attributes[:email]
     fill_in :user_password, with: 'Welcome1'
-    fill_in :user_password_confirmation, with: 'Welcome1'
+    fill_in :user_password_confirmation, with: 'Welcome1'	    
     click_button 'Sign up'
   end
 
@@ -20,8 +20,8 @@ feature 'signing up' do
   scenario 'viewing my details on the registration edit page' do
     sign_up
     visit edit_user_registration_path
-    page.should have_content(valid_attributes[:name])
-    page.should have_content(valid_attributes[:email])
+    find_field('user_name').value.should eq valid_attributes[:name]
+    find_field('user_email').value.should eq valid_attributes[:email]
   end
 
   scenario 'editing my details on the registration edit page' do
